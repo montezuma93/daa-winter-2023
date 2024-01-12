@@ -10,5 +10,7 @@ public class Person {
         this.age = age;
     }
 
-
+    Person(String name) {
+        this.name = name;
+    }
 }

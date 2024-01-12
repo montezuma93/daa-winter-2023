@@ -20,7 +20,6 @@ public class Guitarist extends Person implements MusicPlayer {
 
     @Override
     public void play() {
-
+        System.out.println(favoriteGuitar.sound);
     }
 }
-
