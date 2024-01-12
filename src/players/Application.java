@@ -15,5 +15,10 @@ public class Application {
         Piano piano = new Piano();
         pianist.setInstrument(piano);
         pianist.play();
+
+        FootballPlayer person3 = new FootballPlayer("Manuela", 48);
+        Football ball = new Football();
+        person3.setSportstool(ball);
+        person3.play();
     }
 }
