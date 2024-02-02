@@ -74,5 +74,13 @@ public class Main {
         }
 
 
+        // Hint für die Reverse Diagonale:
+        int i = 0;
+        int j = board[i].length -1;
+        for (i = 0; i < board.length; i++) {
+            System.out.println(board[i][j]);
+            j--;
+        }
+
     }
 }
