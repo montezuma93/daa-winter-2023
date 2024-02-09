@@ -1,86 +1,30 @@
 package datenstructur;
 
-import java.util.Locale;
-
 public class Main {
 
     public static void main(String[] args) {
-        String[][] board = {
-                {"X", "-", "X"},
-                {"0", "X", "-"},
-                {"X", "O", "-"}
-        };
+        Animal[] animals = new Animal[3];
+        animals[0] = new Animal("löwe", "bernd", 12, "male");
+        animals[1] = new Animal("giraffe", "hermann", 30, "male");
+        animals[2] = new Animal("elefant", "rosa", 1, "female");
 
-        //check line per line (row)
-        for (int i = 0; i < board.length; i++) {
-            String charToRemember = null;
-            boolean lineHasWinner = true;
-            for (int j = 0; j < board[i].length; j++) {
-                System.out.println(board[i][j]);
-                if (charToRemember == null) {
-                    charToRemember = board[i][j];
-                } else if (charToRemember != board[i][j]) {
-                    lineHasWinner = false;
-                    break;
-                }
-            }
-            if (lineHasWinner == true) {
-                System.out.println("line has winner");
-                break;
+        getAnimalsByGender(animals, "male");
+        getAnimalsByAgeRange(animals, 4, 24);
+    }
+
+    public static void getAnimalsByGender(Animal[] animals, String gender) {
+        for(Animal animal : animals) {
+            if(animal.gender == gender){
+                System.out.println(animal.name);
             }
         }
+    }
 
-
-        //check column per column (column)
-        for (int j = 0; j < board.length; j++) {
-            String charToRemember = null;
-            boolean lineHasWinner = true;
-            for (int i = 0; i < board[j].length; i++) {
-                System.out.println(board[i][j]);
-                if (charToRemember == null) {
-                    charToRemember = board[i][j];
-                } else if (charToRemember != board[i][j]) {
-                    lineHasWinner = false;
-                    break;
-                }
-            }
-            if (lineHasWinner == true) {
-                System.out.println("line has winner");
-                break;
+    public static void getAnimalsByAgeRange(Animal[] animals, int minAge, int maxAge) {
+        for(Animal animal : animals) {
+            if(animal.age > minAge && animal.age < maxAge){
+                System.out.println(animal.name);
             }
         }
-
-        //diagonale
-        String charToRemember = null;
-        boolean lineHasWinner = true;
-
-        for (int j = 0; j < board.length; j++) {
-            for (int i = 0; i < board[j].length; i++) {
-                if (i == j) {
-                    System.out.println(board[i][j]);
-                    if (charToRemember == null) {
-                        charToRemember = board[i][j];
-                    } else if (charToRemember != board[i][j]) {
-                        lineHasWinner = false;
-                        break;
-                    }
-                }
-
-            }
-        }
-
-        if (lineHasWinner == true) {
-            System.out.println("line has winner");
-        }
-
-
-        // Hint für die Reverse Diagonale:
-        int i = 0;
-        int j = board[i].length -1;
-        for (i = 0; i < board.length; i++) {
-            System.out.println(board[i][j]);
-            j--;
-        }
-
     }
 }
